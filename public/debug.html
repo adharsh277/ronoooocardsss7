@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Router Debug</title>
+  <style>
+    body { font-family: sans-serif; padding: 20px; }
+    pre { background: #f0f0f0; padding: 10px; border-radius: 4px; }
+  </style>
+</head>
+<body>
+  <h1>Router Debug Page</h1>
+  <p>This page helps diagnose routing issues.</p>
+  
+  <h2>Current URL Info:</h2>
+  <pre id="url-info"></pre>
+
+  <script>
+    function updateInfo() {
+      const info = {
+        protocol: window.location.protocol,
+        host: window.location.host,
+        pathname: window.location.pathname,
+        hash: window.location.hash,
+        search: window.location.search,
+        href: window.location.href
+      };
+      
+      document.getElementById('url-info').textContent = 
+        JSON.stringify(info, null, 2);
+    }
+    
+    updateInfo();
+  </script>
+</body>
+</html>
